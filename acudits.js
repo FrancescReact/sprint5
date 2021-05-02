@@ -13,7 +13,7 @@ async function acuditPlus() {
 }
 
 
-        function madox(){
+        function meteo(){
             fetch(' https://api.meteo.cat/pronostic/v1/catalunya/2021/05/01',{
             method: 'GET',
             headers: {
@@ -24,6 +24,7 @@ async function acuditPlus() {
             .then( res => res.json())
             .then(data =>{
                 console.log(data.variables.estatDelCel)
+                 document.getElementById("temps").innerHTML = (data.variables.estatDelCel);
             })
         
     }
