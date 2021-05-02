@@ -12,20 +12,21 @@ async function acuditPlus() {
     document.getElementById("xiste").innerHTML = (pepe.joke);
 }
 
-async function meteo() {
-    const response = await fetch('dadesobertes_pg.json', {
-        method: 'GET',
-        headers: {
-            'Accept': 'application/json'
-        },
-        'Access-Control-Allow-Origin': 'http://static-m.meteo.cat/content/opendata/dadesobertes_pg.json'
-    });
 
-    const temps = await response.json();
-    console.log(temps[0])
-    var tempus = temps[0].versio.variables.estatDelCel;
-    document.getElementById("temps").innerHTML = (tempus);
-}
+        function madox(){
+            fetch(' https://api.meteo.cat/pronostic/v1/catalunya/2021/05/01',{
+            method: 'GET',
+            headers: {
+                    'Accept': 'application/json',
+                    'x-api-key': "hyXR2GmmOF9M3hY2Tthy5axOUCpD5IBL2Cp30AKM",
+                    'origin':'https://api.meteo.cat',
+            }})
+            .then( res => res.json())
+            .then(data =>{
+                console.log(data.variables.estatDelCel)
+            })
+        
+    }
 
 function play() {
     var audio = document.getElementById("audio");
